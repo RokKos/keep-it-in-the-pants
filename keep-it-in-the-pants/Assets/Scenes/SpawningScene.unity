@@ -454,6 +454,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 702667567}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &756180031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756180033}
+  - component: {fileID: 756180032}
+  m_Layer: 0
+  m_Name: GeneratedSnake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &756180032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756180031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1aec5fbb691fc408bfe2c028c186c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkSize: 50
+  numberOfVertices: 12
+  grith: 5
+  bufferSize: 10
+  snakeMaterial: {fileID: 2100000, guid: 6159a03c0b894504c967c753b00a1255, type: 2}
+--- !u!4 &756180033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756180031}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &780782132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1567861761543720, guid: 00284cf2de272b74d864cac5ee59c480,
@@ -536,10 +581,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 198587395144809512, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198587395144809512, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
         type: 2}
-      propertyPath: speedMultiplier
-      value: 5
+      propertyPath: psJizz
+      value: 
+      objectReference: {fileID: 1315123442}
+    - target: {fileID: 198587395144809512, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b, type: 2}
@@ -611,6 +671,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 80da75aa22f744a4f850fa25d6a88507,
     type: 3}
   m_PrefabInternal: {fileID: 1272848582}
+--- !u!198 &1315123442 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198587395144809512, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1058503855}
 --- !u!1 &1470422002
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dickRadius: 1
-  positionSendingInterval: 1
+  positionSendingInterval: 0.05
 --- !u!1 &2080459395 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 80da75aa22f744a4f850fa25d6a88507,

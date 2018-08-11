@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     [SerializeField] private Transform Transform;
+	[SerializeField] private ParticleSystem psJizz;
 
-    [SerializeField] private float speedMultiplier;
+	[SerializeField] private float speedMultiplier;
     [SerializeField] private float angleMultiplier;
     [SerializeField] private float rotationSpeedMultiplier;
     private Vector3 targetRotationEuler;
@@ -38,6 +39,6 @@ public class PlayerController : MonoBehaviour {
 	private void OnCollisionEnter (Collision collision) {
 		Debug.Log("Hit");
 
-		Time.timeScale = 0;
+		psJizz.Play();
 	}
 }
