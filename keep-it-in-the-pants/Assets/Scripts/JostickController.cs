@@ -44,7 +44,7 @@ public class JostickController : MonoBehaviour {
                     y = -1;
                 }
             }
-            if (normalControl) y *= -1;
+            if (normalControls) y *= -1;
             EventManager.Instance.OnDirectionInputChanged.Invoke(x, y);
         }
     }
