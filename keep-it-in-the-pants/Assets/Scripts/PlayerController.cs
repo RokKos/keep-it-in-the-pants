@@ -85,13 +85,12 @@ public class PlayerController : MonoBehaviour {
 		txtLenghtDick.text = "Your dick length was: " + (lenghtDick * kBodyRatioToUnits * 100).ToString() + "cm";
 		txtLenghtDick.enabled = true;
 		dickMoving = false;
+	    gameManager.ChangeCameras(false);
 	}
 
-	gameManager.ChangeCameras(false);
     private void HandleDickFlipping() {
         if (dickFlipping) return;
 
-        Debug.Log(transform.rotation.eulerAngles);
         dickFlipping = true;
         var z = IsFlipped() ? 0.0f : Transform.rotation.eulerAngles.z;
         var yOffset = IsFlipped() ? 0.0f : -180.0f;

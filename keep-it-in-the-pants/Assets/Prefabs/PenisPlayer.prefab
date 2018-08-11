@@ -665,9 +665,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transform: {fileID: 4756818017489730}
   psJizz: {fileID: 198587395144809512}
+  txtLenghtDick: {fileID: 0}
+  gameManager: {fileID: 0}
   speedMultiplier: 5
   angleMultiplier: 1
   rotationSpeedMultiplier: 8
+  maxXAngle: 30
+  flipDuration: 1
 --- !u!136 &136994139843267012
 CapsuleCollider:
   m_ObjectHideFlags: 1
