@@ -84,9 +84,13 @@ public class PlayerController : MonoBehaviour {
     }
 
 	private void OnCollisionEnter (Collision collision) {
+		if (collision.gameObject.tag == "Condom") {
+			psJizz.Play();
+			return;
+		}
+
 		Debug.Log("Hit");
 
-		psJizz.Play();
 		txtLenghtDick.text = "Your dick length was: " + (lenghtDick * kBodyRatioToUnits * 100).ToString() + "cm";
 		txtLenghtDick.enabled = true;
 		dickMoving = false;

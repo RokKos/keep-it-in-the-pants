@@ -29,7 +29,9 @@ public class SpawningController : MonoBehaviour {
 	[SerializeField]
 	private Transform gameTransform;
 
-	private GameObject condom;
+	[SerializeField]
+	private Condom condom;
+
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +40,7 @@ public class SpawningController : MonoBehaviour {
 			Instantiate(prefab, pos, Quaternion.identity, gameTransform);
 		}*/
 
-		
+		RepositionCondom();
 
 	}
 
@@ -66,5 +68,10 @@ public class SpawningController : MonoBehaviour {
 
 	public float GetPlayingRadius () {
 		return spawnRadius;	
+	}
+
+	public void RepositionCondom () {
+		Vector3 pos = SelectRandomCordinate();
+		condom.transform.position = pos;
 	}
 }
