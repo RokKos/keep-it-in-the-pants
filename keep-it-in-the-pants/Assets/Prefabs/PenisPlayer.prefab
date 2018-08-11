@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 4756818017489730}
+  speedMultiplier: 10
   angleMultiplier: 1
   rotationSpeedMultiplier: 8
 --- !u!136 &136994139843267012

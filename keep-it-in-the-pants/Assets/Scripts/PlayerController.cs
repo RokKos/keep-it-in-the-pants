@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] private Transform Transform;
 
+    [SerializeField] private float speedMultiplier;
     [SerializeField] private float angleMultiplier;
     [SerializeField] private float rotationSpeedMultiplier;
     private Vector3 targetRotationEuler;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	
 	void FixedUpdate () {
         Transform.rotation = Quaternion.Slerp(Transform.rotation, targetRotation, rotationSpeedMultiplier * Time.deltaTime);
+        Transform.position += Transform.forward * speedMultiplier * Time.deltaTime;
 	}
 
     private void HandleDirectionInputChange(float x, float y) {
