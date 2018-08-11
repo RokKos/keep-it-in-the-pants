@@ -34,4 +34,10 @@ public class PlayerController : MonoBehaviour {
         targetRotationEuler += diff;
         targetRotation = Quaternion.Euler(targetRotationEuler);
     }
+
+	private void OnCollisionEnter (Collision collision) {
+		Debug.Log("Hit");
+
+		Time.timeScale = 0;
+	}
 }
