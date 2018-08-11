@@ -13,17 +13,19 @@ public class ColliderSpawning : MonoBehaviour {
     public void Start() {
         lastSpawnPosition = Transform.position;
         radius = GameManager.Instance.dickRadius;
+        EventManager.Instance.OnPlayerPositionChanged.AddListener(SpawnCollider);
     }
-	
-	void Update () {
-        if (CheckForDistance()) {
-            GameObject coll = Instantiate(colliderPrefab, Transform.position, Quaternion.identity, GameManager.Instance.transform);
+
+    void SpawnCollider(Transform t) {
+        if (CheckForDistance(t.position)) {
+            lastSpawnPosition = t.position;
+            GameObject coll = Instantiate(colliderPrefab, t.position, Quaternion.identity, GameManager.Instance.transform);
             coll.GetComponent<ColliderController>().SetRadius(radius);
         }
-	}
+    }
 
-    private bool CheckForDistance() {
+    private bool CheckForDistance(Vector3 pos) {
         Debug.Assert(radius > 0);
-        return (Transform.position - lastSpawnPosition).magnitude > 2 * radius + offset;
+        return (pos - lastSpawnPosition).magnitude > 2 * radius + offset;
     }
 }
