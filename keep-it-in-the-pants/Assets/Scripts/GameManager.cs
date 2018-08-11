@@ -13,15 +13,23 @@ public class GameManager : MonoBehaviour {
 	public float positionSendingInterval;
 	public Material skinColor;
 
+    public bool lockLandscape = false;
 
-	private void Awake () {
-		if (!Instance) {
-			Instance = this;
-		}
-	}
 
-	public void ChangeCameras (bool isDickActive) {
+    private void Awake() {
+        if (!Instance) {
+            Instance = this;
+        }
+        if (lockLandscape) {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+        }
+    }
+
+    public void ChangeCameras (bool isDickActive) {
 		topCamera.enabled = !isDickActive;
 		dickCamera.enabled = isDickActive;
 	}
+
+
+
 }

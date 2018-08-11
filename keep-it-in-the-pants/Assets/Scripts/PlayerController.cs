@@ -10,16 +10,23 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private Text txtLenghtDick;
 	[SerializeField] GameManager gameManager;
 
-	[SerializeField] private float speedMultiplier;
+    [SerializeField] private float speedMultiplier;
     [SerializeField] private float angleMultiplier;
     [SerializeField] private float rotationSpeedMultiplier;
+
+    [SerializeField] private float gyroscopeMultiplier;
+
+    [SerializeField] private GameObject dick;
+
     private Vector3 targetRotationEuler;
     private Quaternion targetRotation;
     private float lastTimePositionChanged;
 
-	private float lenghtDick = 0.0f;
-	private const float kBodyRatioToUnits = 1.85f / 42.0f; // in meters
-	private bool dickMoving = true;
+    private float lenghtDick = 0.0f;
+    private const float kBodyRatioToUnits = 1.85f / 42.0f; // in meters
+    private bool dickMoving = true;
+
+    private bool useAccelerator = false;
 
     [Header("Flipping the dick")]
     [SerializeField] private float maxXAngle;
@@ -27,22 +34,39 @@ public class PlayerController : MonoBehaviour {
     private float lerpProgress;
     private bool dickFlipping;
 
-    void Start () {
-        EventManager.Instance.OnDirectionInputChanged.AddListener(HandleDirectionInputChange);
-        targetRotationEuler = Transform.rotation.eulerAngles;
-        targetRotation = Transform.rotation;
-		lenghtDick = 0.0f;
-		txtLenghtDick.enabled = false;
+    void Start() {
+
 		gameManager.ChangeCameras(true);
         dickFlipping = false;
-    }
-	
-	void FixedUpdate () {
-        
-        if (!dickMoving) {
-            return;
-        }
+        SkinnedMeshRenderer mr = dick.GetComponent<SkinnedMeshRenderer>();
+        mr.material = GameManager.Instance.skinColor;
 
+        if (!GameManager.Instance.lockLandscape) {
+            EventManager.Instance.OnDirectionInputChanged.AddListener(HandleDirectionInputChange);
+        }
+        else useAccelerator = true;
+
+        targetRotationEuler = Transform.rotation.eulerAngles;
+        targetRotation = Transform.rotation;
+        lenghtDick = 0.0f;
+        if (txtLenghtDick != null) txtLenghtDick.enabled = false;
+    }
+
+    void Update() {
+        if (useAccelerator || true) {
+            Debug.Log(Input.acceleration);
+            Vector3 newRotation = transform.rotation.eulerAngles;
+            Debug.Log(newRotation);
+            newRotation.x = newRotation.x + (Input.acceleration.z * gyroscopeMultiplier);
+
+            transform.rotation = Quaternion.Euler(newRotation);
+        }
+    }
+
+    void FixedUpdate() {
+        if (!dickMoving || useAccelerator) {
+			return;
+		}
         if (dickFlipping) {
             Transform.rotation = Quaternion.Slerp(Transform.rotation, targetRotation, lerpProgress);
             if (lerpProgress < 1) {
