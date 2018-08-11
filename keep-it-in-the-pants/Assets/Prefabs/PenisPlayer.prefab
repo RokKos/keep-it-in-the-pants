@@ -46,6 +46,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1213765432282618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4610546367183500}
+  - component: {fileID: 114018968778569528}
+  m_Layer: 0
+  m_Name: ColliderSpawningPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1923218889519720
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +105,19 @@ Transform:
   m_Father: {fileID: 4756818017489730}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 11.79, y: 0, z: 0}
+--- !u!4 &4610546367183500
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213765432282618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.71}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4756818017489730}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4756818017489730
 Transform:
   m_ObjectHideFlags: 1
@@ -101,6 +130,7 @@ Transform:
   m_Children:
   - {fileID: 4099357839140362}
   - {fileID: 4565336030595570}
+  - {fileID: 4610546367183500}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -208,6 +238,20 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1109386389208406}
   m_Enabled: 1
+--- !u!114 &114018968778569528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213765432282618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590345cfd2b344e40a105990f51ee2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderPrefab: {fileID: 1676786667939586, guid: aba23061c6316b740a30d2eb9fa2ba8e,
+    type: 2}
+  Transform: {fileID: 4610546367183500}
 --- !u!114 &114260163628618926
 MonoBehaviour:
   m_ObjectHideFlags: 1
