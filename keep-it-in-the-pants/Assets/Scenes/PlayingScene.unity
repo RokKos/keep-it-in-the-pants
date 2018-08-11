@@ -207,6 +207,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!20 &573407720 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20664657054434888, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1058503855}
 --- !u!1 &823940820
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +322,11 @@ Prefab:
       propertyPath: txtLenghtDick
       value: 
       objectReference: {fileID: 1298609504}
+    - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1929303786}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b, type: 2}
   m_IsPrefabAsset: 0
@@ -426,7 +436,6 @@ MonoBehaviour:
   numberOfVertices: 12
   grith: 5
   bufferSize: 10
-  snakeMaterial: {fileID: 2100000, guid: 6159a03c0b894504c967c753b00a1255, type: 2}
 --- !u!4 &1450218111
 Transform:
   m_ObjectHideFlags: 0
@@ -512,6 +521,7 @@ MonoBehaviour:
   joystickRadiusProcentage: 72
   joystickThresholdX: 5
   joystickThresholdY: 5
+  normalControls: 1
 --- !u!4 &1929303785
 Transform:
   m_ObjectHideFlags: 0
@@ -536,5 +546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfad18f5f972fca4aa926308f0bf7268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topCamera: {fileID: 573407720}
+  dickCamera: {fileID: 573407720}
   dickRadius: 1
   positionSendingInterval: 0.05
+  skinColor: {fileID: 2100000, guid: 3a4b7434357d89640bf27b3fc084c917, type: 2}

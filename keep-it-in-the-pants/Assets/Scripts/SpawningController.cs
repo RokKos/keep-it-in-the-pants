@@ -29,13 +29,16 @@ public class SpawningController : MonoBehaviour {
 	[SerializeField]
 	private Transform gameTransform;
 
+	private GameObject condom;
+
 	// Use this for initialization
 	void Start () {
-		for (int i = 0; i < spawnCount; ++i) {
+		/*for (int i = 0; i < spawnCount; ++i) {
 			Vector3 pos = SelectRandomCordinate();
 			Instantiate(prefab, pos, Quaternion.identity, gameTransform);
-		}
+		}*/
 
+		
 
 	}
 
