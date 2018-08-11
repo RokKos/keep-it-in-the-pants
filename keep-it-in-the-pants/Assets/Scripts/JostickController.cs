@@ -13,12 +13,21 @@ public class JostickController : MonoBehaviour {
 
     private float joystickRadius;
 
+    private bool controlsEnabled;
+
     void Start () {
         lastTouchPosition = Vector3.zero;
         joystickRadius = Screen.width * (joystickRadiusProcentage / 100);
-	}
+        controlsEnabled = true;
+
+        EventManager.Instance.OnChangeControlAvailaility.AddListener(SetControls);
+    }
 	
 	void Update () {
+        if (!controlsEnabled) {
+            lastTouchPosition = Vector3.zero;
+            return;
+        }
         if (Input.GetMouseButtonDown(0)) {
             lastTouchPosition = Input.mousePosition;
         }
@@ -46,6 +55,15 @@ public class JostickController : MonoBehaviour {
             }
             if (normalControls) y *= -1;
             EventManager.Instance.OnDirectionInputChanged.Invoke(x, y);
+        }
+    }
+
+    void SetControls(bool enabled) {
+        controlsEnabled = enabled;
+        if (enabled) {
+            if (Input.GetMouseButton(0)) {
+                lastTouchPosition = Input.mousePosition;
+            }
         }
     }
 }
