@@ -8,14 +8,13 @@ public class MeshSpawningScript : MonoBehaviour {
     public int numberOfVertices = 5;
     public float grith = 5f;
     public int bufferSize = 10;
-    public Material snakeMaterial;
 
     private float piValue;
 
     private List<Vector3> playerLocations = new List<Vector3>();
     private List<Vector3> meshVertiecesList = new List<Vector3>();
     private List<int> meshTriangles = new List<int>();
-
+    private Material snakeMaterial;
     private GameObject currentSection;
     private int chunkCounter = 0;
     private int buffer = 0;
@@ -34,6 +33,7 @@ public class MeshSpawningScript : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        snakeMaterial = GameManager.Instance.skinColor;
         currentSection = new GameObject();
         currentSection.transform.parent = gameObject.transform;
         snakeMeshFilter = currentSection.AddComponent<MeshFilter>();

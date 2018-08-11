@@ -311,8 +311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645c9ebb73e155c4ba0c0c41f4e7b25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystickRadius: 20
-  joystickThreshold: 5
+  joystickRadiusProcentage: 72
+  joystickThresholdX: 5
+  joystickThresholdY: 5
 --- !u!4 &1929303785
 Transform:
   m_ObjectHideFlags: 0

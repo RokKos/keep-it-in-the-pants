@@ -5,11 +5,17 @@ using UnityEngine;
 public class JostickController : MonoBehaviour {
 
     private Vector3 lastTouchPosition;
-    [SerializeField] private float joystickRadius;
-    [SerializeField] private float joystickThreshold;
+    [Range(0, 100f)]
+    [SerializeField] private float joystickRadiusProcentage;
+    [SerializeField] private float joystickThresholdX;
+    [SerializeField] private float joystickThresholdY;
+    [SerializeField] private bool normalControls = true;
+
+    private float joystickRadius;
 
     void Start () {
         lastTouchPosition = Vector3.zero;
+        joystickRadius = Screen.width * (joystickRadiusProcentage / 100);
 	}
 	
 	void Update () {
@@ -20,7 +26,7 @@ public class JostickController : MonoBehaviour {
             Vector3 newTouchPosition = Input.mousePosition;
             Vector3 inputDiff = newTouchPosition - lastTouchPosition;
             var x = 0.0f;
-            if(Mathf.Abs(inputDiff.x) > joystickThreshold) {
+            if(Mathf.Abs(inputDiff.x) > joystickThresholdX) {
                 x = inputDiff.x / joystickRadius;
                 if(x > 1) {
                     x = 1;
@@ -30,7 +36,7 @@ public class JostickController : MonoBehaviour {
 
             }
             var y = 0.0f;
-            if(Mathf.Abs(inputDiff.y) > joystickThreshold) {
+            if(Mathf.Abs(inputDiff.y) > joystickThresholdY) {
                 y = inputDiff.y / joystickRadius;
                 if (y > 1) {
                     y = 1;
@@ -38,6 +44,7 @@ public class JostickController : MonoBehaviour {
                     y = -1;
                 }
             }
+            if (normalControl) y *= -1;
             EventManager.Instance.OnDirectionInputChanged.Invoke(x, y);
         }
     }

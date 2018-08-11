@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private float speedMultiplier;
     [SerializeField] private float angleMultiplier;
     [SerializeField] private float rotationSpeedMultiplier;
+    [SerializeField] private GameObject dick;
+
     private Vector3 targetRotationEuler;
     private Quaternion targetRotation;
     private float lastTimePositionChanged;
@@ -20,13 +22,16 @@ public class PlayerController : MonoBehaviour {
 	private const float kBodyRatioToUnits = 1.85f / 42.0f; // in meters
 	private bool dickMoving = true;
 
-	void Start () {
+
+    void Start () {
+        SkinnedMeshRenderer mr = dick.GetComponent<SkinnedMeshRenderer>();
+        mr.material = GameManager.Instance.skinColor;
         EventManager.Instance.OnDirectionInputChanged.AddListener(HandleDirectionInputChange);
         targetRotationEuler = Transform.rotation.eulerAngles;
         targetRotation = Transform.rotation;
 		lenghtDick = 0.0f;
-		txtLenghtDick.enabled = false;
-	}
+		if(txtLenghtDick != null) txtLenghtDick.enabled = false;
+    }
 	
 	void FixedUpdate () {
 		if (!dickMoving) {
