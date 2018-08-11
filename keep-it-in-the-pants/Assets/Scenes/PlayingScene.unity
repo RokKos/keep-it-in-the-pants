@@ -314,9 +314,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
         type: 2}
+<<<<<<< Updated upstream
       propertyPath: txtLenghtDick
       value: 
       objectReference: {fileID: 1298609504}
+=======
+      propertyPath: angleMultiplier
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: speedMultiplier
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 137489036020891508, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5968e5aaef0f4ef4da080439bae2f2e9, type: 2}
+    - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: dick
+      value: 
+      objectReference: {fileID: 1974541822}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b, type: 2}
   m_IsPrefabAsset: 0
@@ -426,7 +447,6 @@ MonoBehaviour:
   numberOfVertices: 12
   grith: 5
   bufferSize: 10
-  snakeMaterial: {fileID: 2100000, guid: 6159a03c0b894504c967c753b00a1255, type: 2}
 --- !u!4 &1450218111
 Transform:
   m_ObjectHideFlags: 0
@@ -509,9 +529,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645c9ebb73e155c4ba0c0c41f4e7b25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystickRadiusProcentage: 72
+  joystickRadiusProcentage: 50
   joystickThresholdX: 5
   joystickThresholdY: 5
+  normalControls: 1
 --- !u!4 &1929303785
 Transform:
   m_ObjectHideFlags: 0
@@ -538,3 +559,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dickRadius: 1
   positionSendingInterval: 0.05
+  skinColor: {fileID: 2100000, guid: 5968e5aaef0f4ef4da080439bae2f2e9, type: 2}
+  lockLandscape: 1
+--- !u!1 &1974541822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1170711168183114, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1058503855}
