@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.88318485, g: 0.62755823, b: 0.37271464, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -311,7 +311,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5cc9e092e5c209f48907a7f0354ddb03, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b7b53e55596a64147bfb8d011c55b8d5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1177,6 +1177,11 @@ Prefab:
       propertyPath: angleMultiplier
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 81124133340421794, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b, type: 2}
   m_IsPrefabAsset: 0
@@ -1220,7 +1225,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1470422002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbc433b6934b2844f9a69815df25615b, type: 3}
   m_Name: 
@@ -1726,7 +1731,7 @@ MonoBehaviour:
   dickCamera: {fileID: 670468481}
   dickRadius: 1
   positionSendingInterval: 0.05
-  skinColor: {fileID: 2100002, guid: 24ee706fc9da9004f8fe4882496baf93, type: 3}
+  skinColor: {fileID: 2100000, guid: 3a4b7434357d89640bf27b3fc084c917, type: 2}
 --- !u!1 &2034425348
 GameObject:
   m_ObjectHideFlags: 0
