@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 
 	public float dickRadius;
 	public float positionSendingInterval;
+	public Material skinColor;
+
 
 	private void Awake () {
 		if (!Instance) {
