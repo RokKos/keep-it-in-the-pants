@@ -670,6 +670,7 @@ MonoBehaviour:
   speedMultiplier: 5
   angleMultiplier: 1
   rotationSpeedMultiplier: 8
+  mr: {fileID: 137489036020891508}
   maxXAngle: 30
   flipDuration: 1
 --- !u!136 &136994139843267012

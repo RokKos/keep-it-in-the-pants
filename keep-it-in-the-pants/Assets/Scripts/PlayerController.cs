@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private float speedMultiplier;
     [SerializeField] private float angleMultiplier;
     [SerializeField] private float rotationSpeedMultiplier;
-    private Vector3 targetRotationEuler;
+
+	[SerializeField] private SkinnedMeshRenderer mr;
+	private Vector3 targetRotationEuler;
     private Quaternion targetRotation;
     private float lastTimePositionChanged;
 
@@ -35,8 +37,11 @@ public class PlayerController : MonoBehaviour {
 		txtLenghtDick.enabled = false;
 		gameManager.ChangeCameras(true);
         dickFlipping = false;
-    }
-	
+
+		mr.material = GameManager.Instance.skinColor;
+
+	}
+
 	void FixedUpdate () {
         
         if (!dickMoving) {
