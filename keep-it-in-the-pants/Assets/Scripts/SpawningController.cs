@@ -34,19 +34,19 @@ public class SpawningController : MonoBehaviour {
 		for (int i = 0; i < spawnCount; ++i) {
 			Vector3 pos = SelectRandomCordinate();
 			Instantiate(prefab, pos, Quaternion.identity, gameTransform);
-		} 
+		}
 
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	Vector3 SelectRandomCordinate () {
 		// http://mathworld.wolfram.com/SphericalCoordinates.html
-		
+
 
 		float r = Random.Range(0, spawnRadius);
 		float theta = Random.Range(0, spawnAngleTheta);
@@ -57,7 +57,11 @@ public class SpawningController : MonoBehaviour {
 		float z = r * Mathf.Cos(Mathf.Deg2Rad * fi);
 
 
-		return new Vector3(x,y,z);
+		return spawnOrigin + new Vector3(x, y, z);
 
+	}
+
+	public float GetPlayingRadius () {
+		return spawnRadius;	
 	}
 }
