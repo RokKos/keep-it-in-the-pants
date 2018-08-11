@@ -7,11 +7,14 @@ public class EventManager : MonoBehaviour {
 
     public static EventManager Instance = null;
 
-    public UnityEvent<Vector3> OnDirectionInputChanged;
+    [System.Serializable] public class DoubleFloatEvent : UnityEvent<float, float> { }
+
+    public UnityEvent<float, float> OnDirectionInputChanged;
 
     private void Awake() {
         if (!Instance) {
             Instance = this;
         }
+        OnDirectionInputChanged = new DoubleFloatEvent();
     }
 }
