@@ -6,34 +6,20 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
     [SerializeField] private Transform Transform;
-<<<<<<< Updated upstream
 	[SerializeField] private ParticleSystem psJizz;
 	[SerializeField] private Text txtLenghtDick;
 	[SerializeField] GameManager gameManager;
-=======
-    [SerializeField] private ParticleSystem psJizz;
-    [SerializeField] private Text txtLenghtDick;
->>>>>>> Stashed changes
 
-    [SerializeField] private float speedMultiplier;
+	[SerializeField] private float speedMultiplier;
     [SerializeField] private float angleMultiplier;
     [SerializeField] private float rotationSpeedMultiplier;
-<<<<<<< Updated upstream
-=======
-    [SerializeField] private float gyroscopeMultiplier;
-
-    [SerializeField] private GameObject dick;
-
->>>>>>> Stashed changes
     private Vector3 targetRotationEuler;
     private Quaternion targetRotation;
     private float lastTimePositionChanged;
 
-    private float lenghtDick = 0.0f;
-    private const float kBodyRatioToUnits = 1.85f / 42.0f; // in meters
-    private bool dickMoving = true;
-
-    private bool useAccelerator = false;
+	private float lenghtDick = 0.0f;
+	private const float kBodyRatioToUnits = 1.85f / 42.0f; // in meters
+	private bool dickMoving = true;
 
     [Header("Flipping the dick")]
     [SerializeField] private float maxXAngle;
@@ -41,7 +27,6 @@ public class PlayerController : MonoBehaviour {
     private float lerpProgress;
     private bool dickFlipping;
 
-<<<<<<< Updated upstream
     void Start () {
         EventManager.Instance.OnDirectionInputChanged.AddListener(HandleDirectionInputChange);
         targetRotationEuler = Transform.rotation.eulerAngles;
@@ -57,38 +42,6 @@ public class PlayerController : MonoBehaviour {
         if (!dickMoving) {
             return;
         }
-=======
-    void Start() {
-        SkinnedMeshRenderer mr = dick.GetComponent<SkinnedMeshRenderer>();
-        mr.material = GameManager.Instance.skinColor;
-
-        if (!GameManager.Instance.lockLandscape) {
-            EventManager.Instance.OnDirectionInputChanged.AddListener(HandleDirectionInputChange);
-        }
-        else useAccelerator = true;
-
-        targetRotationEuler = Transform.rotation.eulerAngles;
-        targetRotation = Transform.rotation;
-        lenghtDick = 0.0f;
-        if (txtLenghtDick != null) txtLenghtDick.enabled = false;
-    }
-
-    void Update() {
-        if (useAccelerator || true) {
-            Debug.Log(Input.acceleration);
-            Vector3 newRotation = transform.rotation.eulerAngles;
-            Debug.Log(newRotation);
-            newRotation.x = newRotation.x + (Input.acceleration.z * gyroscopeMultiplier);
-
-            transform.rotation = Quaternion.Euler(newRotation);
-        }
-    }
-
-    void FixedUpdate() {
-        if (!dickMoving || useAccelerator) {
-			return;
-		}
->>>>>>> Stashed changes
 
         if (dickFlipping) {
             Transform.rotation = Quaternion.Slerp(Transform.rotation, targetRotation, lerpProgress);
