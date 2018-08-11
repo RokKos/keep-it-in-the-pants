@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
     [SerializeField] private Transform Transform;
 	[SerializeField] private ParticleSystem psJizz;
+	[SerializeField] private Text txtLenghtDick;
 
 	[SerializeField] private float speedMultiplier;
     [SerializeField] private float angleMultiplier;
@@ -14,15 +16,27 @@ public class PlayerController : MonoBehaviour {
     private Quaternion targetRotation;
     private float lastTimePositionChanged;
 
+	private float lenghtDick = 0.0f;
+	private const float kBodyRatioToUnits = 1.85f / 42.0f; // in meters
+	private bool dickMoving = true;
+
 	void Start () {
         EventManager.Instance.OnDirectionInputChanged.AddListener(HandleDirectionInputChange);
         targetRotationEuler = Transform.rotation.eulerAngles;
         targetRotation = Transform.rotation;
-    }
+		lenghtDick = 0.0f;
+		txtLenghtDick.enabled = false;
+	}
 	
 	void FixedUpdate () {
+		if (!dickMoving) {
+			return;
+		}
+
         Transform.rotation = Quaternion.Slerp(Transform.rotation, targetRotation, rotationSpeedMultiplier * Time.deltaTime);
-        Transform.position += Transform.forward * speedMultiplier * Time.deltaTime;
+		Vector3 movemntDir = Transform.forward * speedMultiplier * Time.deltaTime;
+		lenghtDick += movemntDir.magnitude;
+		Transform.position += movemntDir;
 
         if(Time.time > lastTimePositionChanged + GameManager.Instance.positionSendingInterval) {
             EventManager.Instance.OnPlayerPositionChanged.Invoke(Transform);
@@ -40,5 +54,10 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log("Hit");
 
 		psJizz.Play();
+		txtLenghtDick.text = "Your dick length was: " + (lenghtDick * kBodyRatioToUnits * 100).ToString() + "cm";
+		txtLenghtDick.enabled = true;
+		dickMoving = false;
+
+
 	}
 }
