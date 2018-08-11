@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float rotationSpeedMultiplier;
     private Vector3 targetRotationEuler;
     private Quaternion targetRotation;
+    private float lastTimePositionChanged;
 
 	void Start () {
         EventManager.Instance.OnDirectionInputChanged.AddListener(HandleDirectionInputChange);
@@ -21,6 +22,10 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
         Transform.rotation = Quaternion.Slerp(Transform.rotation, targetRotation, rotationSpeedMultiplier * Time.deltaTime);
         Transform.position += Transform.forward * speedMultiplier * Time.deltaTime;
+
+        if(Time.time > lastTimePositionChanged + GameManager.Instance.positionSendingInterval) {
+            EventManager.Instance.OnPlayerPositionChanged.Invoke(Transform.position);
+        }
 	}
 
     private void HandleDirectionInputChange(float x, float y) {
