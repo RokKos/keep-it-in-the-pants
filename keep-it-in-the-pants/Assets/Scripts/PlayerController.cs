@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
 
         if(Time.time > lastTimePositionChanged + GameManager.Instance.positionSendingInterval) {
             EventManager.Instance.OnPlayerPositionChanged.Invoke(Transform);
+            lastTimePositionChanged = Time.time;
         }
 	}
 
