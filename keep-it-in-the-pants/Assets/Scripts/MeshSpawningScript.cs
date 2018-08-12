@@ -152,12 +152,12 @@ public class MeshSpawningScript : MonoBehaviour {
         for (int i = 0; i < this.numberOfVertices; i++) {
             Vector3 newVertex = this.playerLocations[this.playerLocations.Count - 1];
 
-            newVertex += Mathf.Sin(this.piValue * i) * up;
-            newVertex += Mathf.Cos(this.piValue * i) * right;
+            newVertex += Mathf.Sin(this.piValue * i) * up * grith;
+            newVertex += Mathf.Cos(this.piValue * i) * right * grith;
             meshVertiecesList.Add(newVertex);
         }
         Vector3 addOnVertex = this.playerLocations[this.playerLocations.Count - 1];
-        addOnVertex += right;
+        addOnVertex += right * grith;
         meshVertiecesList.Add(addOnVertex);
 
     }
