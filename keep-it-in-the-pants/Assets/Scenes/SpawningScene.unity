@@ -738,46 +738,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 224503909286909216, guid: 4e1fb62292744f7469438bf953113d53,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364768790669646, guid: 4e1fb62292744f7469438bf953113d53,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToHighScore
-      objectReference: {fileID: 0}
-    - target: {fileID: 224843782425873998, guid: 4e1fb62292744f7469438bf953113d53,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224734718716991418, guid: 4e1fb62292744f7469438bf953113d53,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 224747670956596292, guid: 4e1fb62292744f7469438bf953113d53,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224038618097580130, guid: 4e1fb62292744f7469438bf953113d53,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000116793298122, guid: 4e1fb62292744f7469438bf953113d53,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349066493187958, guid: 4e1fb62292744f7469438bf953113d53,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1fb62292744f7469438bf953113d53, type: 2}
   m_IsPrefabAsset: 0
@@ -2270,6 +2230,11 @@ MonoBehaviour:
   dickRadius: 1
   positionSendingInterval: 0.05
   skinColor: {fileID: 2100000, guid: 34fcc74b695762f46a21f0a3f5363260, type: 2}
+  cameraDelay: 0.4
+  cameraAxisRotationX: 10
+  cameraAxisRotationY: 10
+  cameraMoveSpeed: 10
+  cameraCorrectionSpeedFactor: 1
 --- !u!114 &1929303787
 MonoBehaviour:
   m_ObjectHideFlags: 0
