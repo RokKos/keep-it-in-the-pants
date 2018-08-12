@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44954014, g: 0.49961042, b: 0.5756764, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -618,6 +618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 636070848}
+  - component: {fileID: 626300777}
   m_Layer: 0
   m_Name: trousersLevel
   m_TagString: Untagged
@@ -625,6 +626,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &626300777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626300776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f91506bfd5f2b44a02b0a29581b52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1929303786}
+  bodyMesh: {fileID: 636070854}
 --- !u!4 &636070848
 Transform:
   m_ObjectHideFlags: 0
@@ -737,7 +751,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 24ee706fc9da9004f8fe4882496baf93, type: 3}
+  - {fileID: 2100000, guid: 34fcc74b695762f46a21f0a3f5363260, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -795,7 +809,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 24ee706fc9da9004f8fe4882496baf93, type: 3}
+  - {fileID: 2100000, guid: 3c1dabc170e630941b81984bc1986acc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1791,7 +1805,7 @@ MonoBehaviour:
   dickCamera: {fileID: 670468481}
   dickRadius: 1
   positionSendingInterval: 0.05
-  skinColor: {fileID: 2100000, guid: 3a4b7434357d89640bf27b3fc084c917, type: 2}
+  skinColor: {fileID: 2100000, guid: 34fcc74b695762f46a21f0a3f5363260, type: 2}
 --- !u!1 &2034425348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,10 +1927,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2113958343}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 12.7, y: 33.3, z: -22}
+  m_LocalRotation: {x: 0.4979731, y: -0.37910914, z: -0.14718404, w: 0.7659216}
+  m_LocalPosition: {x: 2.63, y: 50.2, z: 0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 40.634003, y: -73.416, z: -52.620003}

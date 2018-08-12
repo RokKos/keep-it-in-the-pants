@@ -72,6 +72,11 @@ public class SpawningController : MonoBehaviour {
 
 	public void RepositionCondom () {
 		Vector3 pos = SelectRandomCordinate();
+
+		while (Mathf.Abs(pos.x) < 5 && pos.y < 40 && pos.y > 10) {
+			pos = SelectRandomCordinate();
+		}
+
 		condom.transform.position = pos;
 	}
 }
