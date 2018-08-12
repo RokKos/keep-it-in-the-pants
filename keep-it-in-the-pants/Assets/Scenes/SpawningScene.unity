@@ -746,32 +746,32 @@ Prefab:
     - target: {fileID: 224829187588228180, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 512
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 224829187588228180, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 624
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224552813865616050, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 512
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 224552813865616050, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 624
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224722968416859432, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 512
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 224722968416859432, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 624
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1fb62292744f7469438bf953113d53, type: 2}
@@ -2328,7 +2328,7 @@ MonoBehaviour:
   joystickGO: {fileID: 357443157}
   leftPosition: {fileID: 357443156}
   rightPosition: {fileID: 357443155}
-  timeToLeft: 3
+  timeToLeft: 2.9
   timeToRight: 1.5
 --- !u!1 &2034425348
 GameObject:
