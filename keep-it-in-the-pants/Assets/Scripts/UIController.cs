@@ -15,13 +15,24 @@ public class UIController : MonoBehaviour {
         field.onEndEdit.AddListener(ChangeName);
     }
 
-    private void ChangeName(string name) {
+	private void Update () {
+		if (Input.GetKey("escape")) {
+			ExitGame();
+		}
+	}
+
+	private void ChangeName(string name) {
         PlayerPrefs.SetString("player_name", name);
     }
 
     public void Restart () {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
+
+	public void ExitGame () {
+		Application.Quit();
+	}
+
 
 	public void GoToMainMenu () {
 		SceneManager.LoadScene("MainUIScene");
