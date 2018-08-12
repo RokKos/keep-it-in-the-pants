@@ -39,7 +39,9 @@ public class PlayerController : MonoBehaviour {
 		gameManager.ChangeCameras(true);
         dickFlipping = false;
 
-		mr.material = GameManager.Instance.skinColor;
+		mr.material = gameManager.skinColor;
+		float dickRadius = gameManager.dickRadius * 1.5f;
+		Transform.localScale = new Vector3(dickRadius, dickRadius, dickRadius);
 
 	}
 

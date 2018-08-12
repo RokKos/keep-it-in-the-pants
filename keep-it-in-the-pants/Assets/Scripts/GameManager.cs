@@ -38,9 +38,9 @@ public class GameManager : MonoBehaviour {
 	
 
 	Dictionary<DickType, DickInfo> dickSettings = new Dictionary<DickType, DickInfo>(){
-		{ DickType.kAsian, new DickInfo(1f, 0) },
-		{ DickType.kWhite, new DickInfo(2f, 1) },
-		{ DickType.kBlack, new DickInfo(3f, 2) }
+		{ DickType.kAsian, new DickInfo(0.5f, 0) },
+		{ DickType.kWhite, new DickInfo(1f, 1) },
+		{ DickType.kBlack, new DickInfo(2f, 2) }
 	};
 
 
