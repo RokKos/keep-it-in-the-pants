@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (dickFlipping) {
+            Debug.Log(lerpProgress);
             Transform.rotation = Quaternion.Slerp(Transform.rotation, targetRotation, lerpProgress);
             if (lerpProgress < 1) {
                 lerpProgress += Time.deltaTime / flipDuration;

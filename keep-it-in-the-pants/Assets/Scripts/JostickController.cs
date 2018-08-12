@@ -9,7 +9,7 @@ public class JostickController : MonoBehaviour {
     [SerializeField] private float joystickRadiusProcentage;
     [SerializeField] private float joystickThresholdX;
     [SerializeField] private float joystickThresholdY;
-    [SerializeField] private bool normalControls = true;
+    [SerializeField] private bool notNormalControls = true;
 
     private float joystickRadius;
 
@@ -53,7 +53,7 @@ public class JostickController : MonoBehaviour {
                     y = -1;
                 }
             }
-            if (normalControls) y *= -1;
+            if (notNormalControls) y *= -1;
             EventManager.Instance.OnDirectionInputChanged.Invoke(x, y);
         }
     }
