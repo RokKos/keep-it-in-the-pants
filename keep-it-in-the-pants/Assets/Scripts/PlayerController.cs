@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour {
 
 		Debug.Log("Hit");
 
-		txtLenghtDick.text = "Your dick length was: " + (lenghtDick * kBodyRatioToUnits * 100).ToString() + "cm";
+		txtLenghtDick.text = "Your dick length was: " + (lenghtDick * kBodyRatioToUnits * 100).ToString("#.0") + "cm";
 		txtLenghtDick.enabled = true;
 		dickMoving = false;
 	    //gameManager.ChangeCameras(false);
