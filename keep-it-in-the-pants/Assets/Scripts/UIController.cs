@@ -9,6 +9,18 @@ public class UIController : MonoBehaviour {
 	[SerializeField] private Slider racistSlider;
 
 
+	public void Restart () {
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	public void GoToMainMenu () {
+		SceneManager.LoadScene("MainUIScene");
+	}
+
+	public void GoToHighScore () {
+		SceneManager.LoadScene("Highscore");
+	}
+
 	public void OnPlayGame () {
 		int newValue = (int)racistSlider.value;
 

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Transform Transform;
 	[SerializeField] private ParticleSystem psJizz;
 	[SerializeField] private Text txtLenghtDick;
+	[SerializeField] private GameObject objButtons;
 	[SerializeField] GameManager gameManager;
 
 	[SerializeField] private float speedMultiplier;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour {
         targetRotation = Transform.rotation;
 		lenghtDick = 0.0f;
 		txtLenghtDick.enabled = false;
+		objButtons.SetActive(false);
 		gameManager.ChangeCameras(true);
         dickFlipping = false;
 
@@ -107,6 +109,7 @@ public class PlayerController : MonoBehaviour {
 
 		txtLenghtDick.text = "Your dick length was: " + (lenghtDick * kBodyRatioToUnits * 100).ToString("#.0") + "cm";
 		txtLenghtDick.enabled = true;
+		objButtons.SetActive(true);
 		dickMoving = false;
 	    //gameManager.ChangeCameras(false);
         EventManager.Instance.OnPlayerDeath.Invoke();
