@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour {
 
+    public Transform dickTrans;
+
     private float lastInput;
     private float cameraDelay;
     private float cameraAxisRotationX;
@@ -29,7 +31,6 @@ public class CameraBehaviour : MonoBehaviour {
 	}
     private void Update() {
         if(Time.time - lastInput > cameraDelay && VectorDif()) {
-            Debug.Log("fixing rotation");
             transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(startingRot), cameraRotationSpeed * cameraCorrectionSpeedFactor * Time.deltaTime);
 
         }
@@ -41,7 +42,11 @@ public class CameraBehaviour : MonoBehaviour {
     }
 
     void MoveCamera(float x, float y) {
-        Debug.Log("moving camera");
+        if (dickTrans.rotation.eulerAngles.x < -90) {
+            Debug.Log("multiplaying with -1");
+            x *= -1;
+        }
+        else Debug.Log(dickTrans.rotation.eulerAngles);
         Vector3 targetRotation = transform.localRotation.eulerAngles;
         if (targetRotation.x > 180) targetRotation.x -= 360;
         if (targetRotation.y > 180) targetRotation.y -= 360;
