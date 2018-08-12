@@ -42,11 +42,12 @@ public class CameraBehaviour : MonoBehaviour {
     }
 
     void MoveCamera(float x, float y) {
-        if (dickTrans.rotation.eulerAngles.x < -90) {
+        /*if (dickTrans.rotation.eulerAngles.x < -90) {
             Debug.Log("multiplaying with -1");
             x *= -1;
         }
         else Debug.Log(dickTrans.rotation.eulerAngles);
+		*/
         Vector3 targetRotation = transform.localRotation.eulerAngles;
         if (targetRotation.x > 180) targetRotation.x -= 360;
         if (targetRotation.y > 180) targetRotation.y -= 360;
