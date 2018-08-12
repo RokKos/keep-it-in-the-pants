@@ -1747,10 +1747,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1929303785}
-  - component: {fileID: 1929303784}
   - component: {fileID: 1929303783}
   - component: {fileID: 1929303786}
   - component: {fileID: 1929303787}
+  - component: {fileID: 1929303784}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1782,12 +1782,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1929303782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2277664da6c14704fba528e8a38e5a69, type: 3}
+  m_Script: {fileID: 11500000, guid: 645c9ebb73e155c4ba0c0c41f4e7b25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragThreshold: 5
-  dragThresholdX: 5
-  dragThresholdY: 5
+  joystickRadiusProcentage: 50
+  joystickThresholdX: 5
+  joystickThresholdY: 10
+  normalControls: 1
 --- !u!4 &1929303785
 Transform:
   m_ObjectHideFlags: 0
@@ -1842,26 +1843,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.5623859
-      value: 0.84398115
-      inSlope: 0.63571125
-      outSlope: 0.63571125
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.26679572
-    - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
