@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour {
 		DickType dickType = (DickType)PlayerPrefs.GetInt("racistDifficulty", 0);
 		DickInfo info = dickSettings[dickType];
 		skinColor = dickMaterials[info.material_ind];
-		meshSpawningScript.ChangeDickThickness(info.thickness);
 	}
 
 	public void ChangeCameras (bool isDickActive) {
