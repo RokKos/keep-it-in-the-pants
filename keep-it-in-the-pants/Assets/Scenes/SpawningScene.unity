@@ -1258,6 +1258,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &1058503856 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4565336030595570, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1058503855}
 --- !u!198 &1315123442 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198587395144809512, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
@@ -1322,7 +1327,7 @@ GameObject:
   - component: {fileID: 1509878871}
   - component: {fileID: 1509878870}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: ZoomedOutCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1745,6 +1750,7 @@ GameObject:
   - component: {fileID: 1929303784}
   - component: {fileID: 1929303783}
   - component: {fileID: 1929303786}
+  - component: {fileID: 1929303787}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1763,6 +1769,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb08522f1ff30d44bddd384a956c177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1929303784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1806,6 +1817,58 @@ MonoBehaviour:
   dickRadius: 1
   positionSendingInterval: 0.05
   skinColor: {fileID: 2100000, guid: 34fcc74b695762f46a21f0a3f5363260, type: 2}
+--- !u!114 &1929303787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1929303782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f616b56fd500d3f43a249ba53edcc6f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 1509878871}
+  dickCameraTransform: {fileID: 1058503856}
+  humanRenderer: {fileID: 636070854}
+  snakeParent: {fileID: 756180031}
+  frostumHeightMultiplier: 1.3
+  wallsParent: {fileID: 420306130}
+  zoomOutDuration: 1
+  rotateSpeed: 20
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5623859
+      value: 0.84398115
+      inSlope: 0.63571125
+      outSlope: 0.63571125
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.26679572
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2034425348
 GameObject:
   m_ObjectHideFlags: 0
