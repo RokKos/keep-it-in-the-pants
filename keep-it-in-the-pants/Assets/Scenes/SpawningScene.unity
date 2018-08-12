@@ -746,32 +746,32 @@ Prefab:
     - target: {fileID: 224829187588228180, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 343.5
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 224829187588228180, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 287
+      value: 624
       objectReference: {fileID: 0}
     - target: {fileID: 224552813865616050, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 343.5
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 224552813865616050, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 287
+      value: 624
       objectReference: {fileID: 0}
     - target: {fileID: 224722968416859432, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 343.5
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 224722968416859432, guid: 4e1fb62292744f7469438bf953113d53,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 287
+      value: 624
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1fb62292744f7469438bf953113d53, type: 2}
@@ -1621,6 +1621,11 @@ Prefab:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 176610618}
+    - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: deathAnimationController
+      value: 
+      objectReference: {fileID: 1929303787}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b, type: 2}
   m_IsPrefabAsset: 0
