@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private AudioSource audioSource;
 	[SerializeField] private AudioManager audioManager;
+	[SerializeField] private Rigidbody physicsBody;
+
 
 	private Vector3 targetRotationEuler;
     private Quaternion targetRotation;
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 		mr.material = gameManager.skinColor;
 		float dickRadius = gameManager.dickRadius * 1.5f;
 		Transform.localScale = new Vector3(dickRadius, dickRadius, dickRadius);
+		physicsBody.isKinematic = false;
 
 	}
 
@@ -113,6 +116,7 @@ public class PlayerController : MonoBehaviour {
 		audioSource.clip = ouchSound;
 		audioSource.Play();
 		audioManager.EndGame();
+		physicsBody.isKinematic = true;
 
 	}
 
