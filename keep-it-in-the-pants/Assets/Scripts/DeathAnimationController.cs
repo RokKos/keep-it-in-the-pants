@@ -28,7 +28,6 @@ public class DeathAnimationController : MonoBehaviour {
 	}
 
     void LateUpdate() {
-        Debug.Log(progress);
         if (state == State.zoomingOut) {
             camera.transform.position = Vector3.Lerp(camera.transform.position, targetPosition, curve.Evaluate(progress));
             camera.transform.LookAt(bounds.center);

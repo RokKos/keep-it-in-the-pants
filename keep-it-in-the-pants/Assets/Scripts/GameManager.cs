@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
     string nameKey = "name_";
     string scoreKey = "score_";
 
+    [SerializeField] private TutorialController tutorialController;
+
     [SerializeField] private  List<Material> dickMaterials;
 
 
@@ -61,6 +63,9 @@ public class GameManager : MonoBehaviour {
 		DickInfo info = dickSettings[dickType];
 		skinColor = dickMaterials[info.material_ind];
 		dickRadius = info.thickness;
+        if(PlayerPrefs.GetInt("tutorial", 0) == 0 || true) {
+            tutorialController.Init();
+        }
 	}
 
 	public void ChangeCameras (bool isDickActive) {
