@@ -42,12 +42,10 @@ public class CameraBehaviour : MonoBehaviour {
     }
 
     void MoveCamera(float x, float y) {
-        /*if (dickTrans.rotation.eulerAngles.x < -90) {
-            Debug.Log("multiplaying with -1");
+        if (CheckForAngleFlip() && IsFlipped()) {
+            Debug.Log("i am fliped");
             x *= -1;
         }
-        else Debug.Log(dickTrans.rotation.eulerAngles);
-		*/
         Vector3 targetRotation = transform.localRotation.eulerAngles;
         if (targetRotation.x > 180) targetRotation.x -= 360;
         if (targetRotation.y > 180) targetRotation.y -= 360;
@@ -67,4 +65,15 @@ public class CameraBehaviour : MonoBehaviour {
         transform.localEulerAngles = targetRotation; //Quaternion.Euler(targetRotation);
         lastInput = Time.time;
     }
+    private bool CheckForAngleFlip() {
+        float dotProduct = Vector3.Dot(Vector3.up, transform.forward);
+        float angle = Mathf.Acos(dotProduct);
+        return angle < (Mathf.Deg2Rad * 90);
+    }
+
+    private bool IsFlipped() {
+        float dotProduct = Vector3.Dot(Vector3.up, transform.up);
+        return dotProduct < 0.0f;
+    }
+
 }
