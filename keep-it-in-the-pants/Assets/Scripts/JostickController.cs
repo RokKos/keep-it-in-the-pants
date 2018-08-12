@@ -20,6 +20,11 @@ public class JostickController : MonoBehaviour {
         lastTouchPosition = Vector3.zero;
         joystickRadius = Screen.width * (joystickRadiusProcentage / 100);
         controlsEnabled = true;
+		if (PlayerPrefs.GetInt("invertControls", 0) == 0) {
+			notNormalControls = false;
+		} else {
+			notNormalControls = true;
+		}
 
         EventManager.Instance.OnChangeControlAvailaility.AddListener(SetControls);
     }

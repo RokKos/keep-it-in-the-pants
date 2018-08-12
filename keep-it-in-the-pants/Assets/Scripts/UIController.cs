@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour {
 
 	[SerializeField] private Slider racistSlider;
+	[SerializeField] private Toggle invertControlsToggle;
 
 
 	public void Restart () {
@@ -23,9 +24,12 @@ public class UIController : MonoBehaviour {
 
 	public void OnPlayGame () {
 		int newValue = (int)racistSlider.value;
-
 		Debug.Log("Racist Difficulty changed from: "+ PlayerPrefs.GetInt("racistDifficulty", -1).ToString() + " to: " + newValue.ToString());
 		PlayerPrefs.SetInt("racistDifficulty", (int)newValue);
+
+		int invert = invertControlsToggle.isOn ? 1 : 0;
+		Debug.Log("Invert Controlls changed from: " + PlayerPrefs.GetInt("invertControls", -1).ToString() + " to: " + invert.ToString());
+		PlayerPrefs.SetInt("invertControls", invert); 
 
 		SceneManager.LoadSceneAsync("SpawningScene");
 	}
