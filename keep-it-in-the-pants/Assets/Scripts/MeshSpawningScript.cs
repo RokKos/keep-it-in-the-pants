@@ -188,4 +188,9 @@ public class MeshSpawningScript : MonoBehaviour {
             this.meshTriangles.Add(this.numberOfVertices * (this.playerLocations.Count - 1) + 1 + i);
         }
     }
+
+	public void ChangeDickThickness (float thickness) {
+		grith = thickness;
+
+	}
 }

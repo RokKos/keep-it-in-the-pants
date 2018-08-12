@@ -1813,8 +1813,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfad18f5f972fca4aa926308f0bf7268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshSpawningScript: {fileID: 756180032}
   topCamera: {fileID: 1509878871}
   dickCamera: {fileID: 670468481}
+  dickMaterials:
+  - {fileID: 2100000, guid: e6e99d451c5b94644a9944ca921efe16, type: 2}
+  - {fileID: 2100000, guid: 3a4b7434357d89640bf27b3fc084c917, type: 2}
+  - {fileID: 2100000, guid: 34fcc74b695762f46a21f0a3f5363260, type: 2}
   dickRadius: 1
   positionSendingInterval: 0.05
   skinColor: {fileID: 2100000, guid: 34fcc74b695762f46a21f0a3f5363260, type: 2}
