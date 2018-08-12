@@ -43,7 +43,6 @@ public class CameraBehaviour : MonoBehaviour {
 
     void MoveCamera(float x, float y) {
         if (CheckForAngleFlip() && IsFlipped()) {
-            Debug.Log("i am fliped");
             x *= -1;
         }
         Vector3 targetRotation = transform.localRotation.eulerAngles;
