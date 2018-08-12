@@ -12,7 +12,8 @@ public class UIController : MonoBehaviour {
 
 
     private void Start() {
-        field.onEndEdit.AddListener(ChangeName);
+        if(field)
+            field.onEndEdit.AddListener(ChangeName);
     }
 
 	private void Update () {
