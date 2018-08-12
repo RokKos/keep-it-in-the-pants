@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour {
 			psJizz.Play();
 			return;
 		}
+        if (!dickMoving) return;
 
 		Debug.Log("Hit");
 
@@ -98,7 +99,9 @@ public class PlayerController : MonoBehaviour {
 		dickMoving = false;
 	    //gameManager.ChangeCameras(false);
         EventManager.Instance.OnPlayerDeath.Invoke();
-	}
+        GameManager.Instance.UpdateHighscore((lenghtDick * kBodyRatioToUnits * 100));
+
+    }
 
     private void HandleDickFlipping() {
         if (dickFlipping) return;
