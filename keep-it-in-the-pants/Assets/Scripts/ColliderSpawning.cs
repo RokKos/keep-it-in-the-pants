@@ -14,6 +14,7 @@ public class ColliderSpawning : MonoBehaviour {
         lastSpawnPosition = Transform.position;
         radius = GameManager.Instance.dickRadius;
         EventManager.Instance.OnPlayerPositionChanged.AddListener(SpawnCollider);
+		offset = radius * 1.5f;
     }
 
     void SpawnCollider(Transform t) {

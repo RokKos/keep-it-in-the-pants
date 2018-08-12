@@ -38,9 +38,9 @@ public class GameManager : MonoBehaviour {
 	
 
 	Dictionary<DickType, DickInfo> dickSettings = new Dictionary<DickType, DickInfo>(){
-		{ DickType.kAsian, new DickInfo(2.5f, 0) },
-		{ DickType.kWhite, new DickInfo(5.0f, 1) },
-		{ DickType.kBlack, new DickInfo(10.0f, 2) }
+		{ DickType.kAsian, new DickInfo(1.25f, 0) },
+		{ DickType.kWhite, new DickInfo(2.5f, 1) },
+		{ DickType.kBlack, new DickInfo(5.0f, 2) }
 	};
 
 
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour {
 		DickType dickType = (DickType)PlayerPrefs.GetInt("racistDifficulty", 0);
 		DickInfo info = dickSettings[dickType];
 		skinColor = dickMaterials[info.material_ind];
+		dickRadius = info.thickness;
 	}
 
 	public void ChangeCameras (bool isDickActive) {
