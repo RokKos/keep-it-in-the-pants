@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float rotationSpeedMultiplier;
 
 	[SerializeField] private SkinnedMeshRenderer mr;
+
+	[SerializeField] private List<AudioClip> OuchSounds;
+
+	[SerializeField] private AudioSource audioSource;
+	[SerializeField] private AudioManager audioManager;
+
 	private Vector3 targetRotationEuler;
     private Quaternion targetRotation;
     private float lastTimePositionChanged;
@@ -103,7 +109,12 @@ public class PlayerController : MonoBehaviour {
         EventManager.Instance.OnPlayerDeath.Invoke();
         GameManager.Instance.UpdateHighscore((lenghtDick * kBodyRatioToUnits * 100));
 
-    }
+		AudioClip ouchSound = OuchSounds[Random.Range(0, OuchSounds.Count)];
+		audioSource.clip = ouchSound;
+		audioSource.Play();
+		audioManager.EndGame();
+
+	}
 
     private void HandleDickFlipping() {
         if (dickFlipping) return;
