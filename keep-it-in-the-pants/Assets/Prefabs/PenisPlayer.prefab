@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 4565336030595570}
   - component: {fileID: 20664657054434888}
   - component: {fileID: 81124133340421794}
+  - component: {fileID: 114500458463549888}
   m_Layer: 0
   m_Name: DickCamera
   m_TagString: MainCamera
@@ -272,6 +273,7 @@ GameObject:
   - component: {fileID: 4756818017489730}
   - component: {fileID: 54514321588218236}
   - component: {fileID: 114260163628618926}
+  - component: {fileID: 82739810927933736}
   m_Layer: 0
   m_Name: PenisPlayer
   m_TagString: Untagged
@@ -409,7 +411,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1109386389208406}
   m_LocalRotation: {x: 0.034324758, y: -0, z: -0, w: 0.9994108}
-  m_LocalPosition: {x: 0, y: 1.6, z: -0.312}
+  m_LocalPosition: {x: 0, y: 1.6, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4756818017489730}
@@ -464,7 +466,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923218889519720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 20.59, z: 3.66}
+  m_LocalPosition: {x: 0, y: 20.59, z: 2.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4733390798797822}
@@ -538,7 +540,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 100
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -620,6 +622,101 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1109386389208406}
   m_Enabled: 0
+--- !u!82 &82739810927933736
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923218889519720}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95526894930569784
 Animator:
   serializedVersion: 3
@@ -667,14 +764,40 @@ MonoBehaviour:
   Transform: {fileID: 4756818017489730}
   psJizz: {fileID: 198587395144809512}
   txtLenghtDick: {fileID: 0}
+  objButtons: {fileID: 0}
   gameManager: {fileID: 0}
   speedMultiplier: 5
   angleMultiplier: 3
   rotationSpeedMultiplier: 8
   mr: {fileID: 137489036020891508}
+  OuchSounds:
+  - {fileID: 8300000, guid: dc046a6ba82f75044b51e8e2beb0b9b3, type: 3}
+  - {fileID: 8300000, guid: 26b0a7415a65b6f409ed731012b577c8, type: 3}
+  - {fileID: 8300000, guid: 74916c341d9ff6e4dbcdd01564bf084c, type: 3}
+  - {fileID: 8300000, guid: 5c56c1c4530390a429f666fc9bb85170, type: 3}
+  - {fileID: 8300000, guid: d671727027de74b41a6ec23dd1e86d17, type: 3}
+  - {fileID: 8300000, guid: 84696c274b34afa4099bd4c06b3356ac, type: 3}
+  - {fileID: 8300000, guid: b5aa7c2d8aa25ab4fbe3f705e5884356, type: 3}
+  - {fileID: 8300000, guid: 94dd68606821c5449a41f94fd45abf0f, type: 3}
+  - {fileID: 8300000, guid: e6cda298dbf808942b4370179a663ab7, type: 3}
+  audioSource: {fileID: 82739810927933736}
+  audioManager: {fileID: 0}
+  physicsBody: {fileID: 54514321588218236}
   enableDickFlipping: 0
   maxXAngle: 20
   flipDuration: 1
+--- !u!114 &114500458463549888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1109386389208406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39aeb48ec48cd5b408e638b318330495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dickTrans: {fileID: 4756818017489730}
 --- !u!136 &136724989139977462
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -683,7 +806,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1163851378322812}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.26
   m_Height: 0.78
   m_Direction: 1
@@ -835,7 +958,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1380,7 +1503,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 1.31
+    angle: 5
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -1639,7 +1762,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 10
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -1692,11 +1815,11 @@ ParticleSystem:
       cycleCount: 1
       repeatInterval: 0.01
     - serializedVersion: 2
-      time: 0.05
+      time: 0.1
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 10
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -1749,11 +1872,11 @@ ParticleSystem:
       cycleCount: 1
       repeatInterval: 0.01
     - serializedVersion: 2
-      time: 0.05
+      time: 0.2
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 10
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -1806,11 +1929,11 @@ ParticleSystem:
       cycleCount: 1
       repeatInterval: 0.01
     - serializedVersion: 2
-      time: 0.05
+      time: 0.3
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 10
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -1863,11 +1986,11 @@ ParticleSystem:
       cycleCount: 1
       repeatInterval: 0.01
     - serializedVersion: 2
-      time: 0.05
+      time: 0.4
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 10
         minScalar: 0
         maxCurve:
           serializedVersion: 2
