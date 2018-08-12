@@ -42,9 +42,16 @@ public class MeshSpawningScript : MonoBehaviour {
         upBuffer = new Vector3[bufferSize+1];
         rightBuffer = new Vector3[bufferSize+1];
 
+        EventManager.Instance.OnPlayerDeath.AddListener(SpawnBufferContent);
         EventManager.Instance.OnPlayerPositionChanged.AddListener(PositionChanged);
+
         piValue = Mathf.PI * 2 / this.numberOfVertices;
 
+    }
+
+    void SpawnBufferContent() {
+        //Debug.Log("Death chunk should have been spawned!");
+        AddMeshToGO();
     }
 
     void PositionChanged(Transform snakeTransform) {
