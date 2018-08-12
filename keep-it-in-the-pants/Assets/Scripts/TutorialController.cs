@@ -16,10 +16,10 @@ public class TutorialController : MonoBehaviour {
     [SerializeField] float timeToRight;
     private float lengthBetweenPositions;
     private GameObject GameObject;
-    private float startXPos;
+    private float midScreen;
 
     public void Init() {
-        startXPos = joystickGO.GetComponent<RectTransform>().position.x;
+        midScreen = Screen.width / 2.0f;
         joystickGO.SetActive(true);
         GameObject = this.gameObject;
         tutorialText.text = firstText;
@@ -33,7 +33,9 @@ public class TutorialController : MonoBehaviour {
 	void Update () {
         if (!inTutorial) return;
 
-        var x = (joystickGO.GetComponent<RectTransform>().position.x) / (lengthBetweenPositions * 6.0f);
+        var multiplier = joystickGO.GetComponent<RectTransform>().position.x > midScreen ? 2f : 1.1f;
+        Debug.Log(multiplier);
+        var x = (joystickGO.GetComponent<RectTransform>().position.x - midScreen) / (lengthBetweenPositions * multiplier);
         Debug.Log(joystickGO.transform.position.x);
         EventManager.Instance.OnDirectionInputChanged.Invoke(x, 0f);
 	}
