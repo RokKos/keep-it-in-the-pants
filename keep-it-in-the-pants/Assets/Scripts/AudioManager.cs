@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playingVoiceSounds = false;
-		timeFromLastSound = voiceDelay;
+		timeFromLastSound = 0.0f;
 	}
 	
 	// Update is called once per frame
