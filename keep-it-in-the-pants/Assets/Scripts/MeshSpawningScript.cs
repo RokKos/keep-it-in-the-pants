@@ -126,7 +126,7 @@ public class MeshSpawningScript : MonoBehaviour {
             for(int j = 0; j < this.numberOfVertices + 1; j++) {
                 float u = j == 0 ? 0 : (float)j / ((float)numberOfVertices - 1);
                 float v = i == 0 ? 0 : (float)i / (float)(this.meshVertiecesList.Count - 1 - this.numberOfVertices - 1);
-                generatedUV[i + j] = new Vector2(v, u);
+                generatedUV[i + j] = new Vector2(u, v);
             }
         }
         if(first) {
