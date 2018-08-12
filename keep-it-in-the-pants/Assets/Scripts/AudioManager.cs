@@ -14,7 +14,8 @@ public class AudioManager : MonoBehaviour {
 	private float timeFromLastSound = 0.0f;
 
 	bool playingVoiceSounds = false;
-	
+	private List<AudioClip> usedWomanSound = new List<AudioClip>();
+	private List<AudioClip> usedManSound = new List<AudioClip>();
 
 	// Use this for initialization
 	void Start () {
@@ -35,8 +36,10 @@ public class AudioManager : MonoBehaviour {
 				return;
 			}
 
-			SelectAndPlayVoice();
-			timeFromLastSound = 0.0f;
+			bool playedSound = SelectAndPlayVoice();
+			if (playedSound) {
+				timeFromLastSound = 0.0f;
+			}
 		}
 
 	}
@@ -44,19 +47,42 @@ public class AudioManager : MonoBehaviour {
 	public void EndGame () {
 		backgroundSound.volume = 0.1f;
 		playingVoiceSounds = true;
+		usedWomanSound.Clear();
+		usedManSound.Clear();
 	}
 
-	private void SelectAndPlayVoice () {
+	private bool SelectAndPlayVoice () {
 		int WomanMan = Random.Range(0, 2);
 
 		if (WomanMan == 0) {
 			AudioClip voice = WomanSounds[Random.Range(0,WomanSounds.Count)];
+			if (usedWomanSound.Count < WomanSounds.Count) {
+				while (usedWomanSound.Contains(voice)) {
+					voice = WomanSounds[Random.Range(0, WomanSounds.Count)];
+				}
+			} else {
+				return false;
+			}
+
 			sourceForVoice.clip = voice;
+			usedWomanSound.Add(voice);
 			sourceForVoice.Play();
+			return true;
 		} else {
 			AudioClip voice = ManSounds[Random.Range(0, ManSounds.Count)];
+
+			if (usedManSound.Count < ManSounds.Count) {
+				while (usedManSound.Contains(voice)) {
+					voice = ManSounds[Random.Range(0, ManSounds.Count)];
+				}
+			} else {
+				return false;
+			}
+
 			sourceForVoice.clip = voice;
+			usedManSound.Add(voice);
 			sourceForVoice.Play();
+			return true;
 		}
 
 	}

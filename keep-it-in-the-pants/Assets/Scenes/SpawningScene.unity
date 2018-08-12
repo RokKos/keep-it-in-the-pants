@@ -2027,7 +2027,7 @@ MonoBehaviour:
   joystickRadiusProcentage: 50
   joystickThresholdX: 5
   joystickThresholdY: 10
-  notNormalControls: 0
+  notNormalControls: 1
 --- !u!4 &1929303785
 Transform:
   m_ObjectHideFlags: 0
