@@ -15,7 +15,7 @@ public class DeathAnimationController : MonoBehaviour {
 
     [Header("Zoom out stuff")]
     [SerializeField] private float zoomOutDuration;
-    [SerializeField] private float rotateSpeed = 20.0f;
+    public float rotateSpeed = 20.0f;
     private float progress;
     [SerializeField] private AnimationCurve curve;
     private Vector3 targetPosition;

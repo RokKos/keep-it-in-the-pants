@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private Text txtLenghtDick;
 	[SerializeField] private GameObject objButtons;
 	[SerializeField] GameManager gameManager;
+	[SerializeField] DeathAnimationController deathAnimationController;
 
 	[SerializeField] private float speedMultiplier;
     [SerializeField] private float angleMultiplier;
@@ -109,7 +110,7 @@ public class PlayerController : MonoBehaviour {
 
 		txtLenghtDick.text = "Your dick length was: " + (lenghtDick * kBodyRatioToUnits * 100).ToString("#.0") + "cm";
 		txtLenghtDick.enabled = true;
-		objButtons.SetActive(true);
+		StartCoroutine("WaitUntilShowUI");
 		dickMoving = false;
 	    //gameManager.ChangeCameras(false);
         EventManager.Instance.OnPlayerDeath.Invoke();
@@ -145,4 +146,18 @@ public class PlayerController : MonoBehaviour {
         float dotProduct = Vector3.Dot(Vector3.up, Transform.up);
         return dotProduct < 0.0f;
     }
+
+	IEnumerator WaitUntilShowUI () {
+		float time = 0.0f;
+		while (time < 360 / deathAnimationController.rotateSpeed) {
+			time += Time.deltaTime;
+			if (Input.GetKey("escape")) {
+				break;
+			}
+			yield return null;
+		}
+
+		objButtons.SetActive(true);
+
+	}
 }
