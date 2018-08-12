@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour {
 	[SerializeField] private Slider racistSlider;
 	[SerializeField] private Toggle invertControlsToggle;
     [SerializeField] private InputField field;
+    [SerializeField] private GameObject pausePanel;
 
 
     private void Start() {
@@ -18,7 +19,13 @@ public class UIController : MonoBehaviour {
 
 	private void Update () {
 		if (Input.GetKey("escape")) {
-			ExitGame();
+            if(SceneManager.GetActiveScene().name == "MainUIScene") {
+			    ExitGame();
+            }
+            else {
+                Time.timeScale = 0.0f;
+                pausePanel.SetActive(true);
+            }
 		}
 	}
 
@@ -27,7 +34,8 @@ public class UIController : MonoBehaviour {
     }
 
     public void Restart () {
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	public void ExitGame () {
@@ -36,11 +44,13 @@ public class UIController : MonoBehaviour {
 
 
 	public void GoToMainMenu () {
-		SceneManager.LoadScene("MainUIScene");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainUIScene");
 	}
 
 	public void GoToHighScore () {
-		SceneManager.LoadScene("Highscore");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Highscore");
 	}
 
 	public void OnPlayGame () {
@@ -54,4 +64,9 @@ public class UIController : MonoBehaviour {
 
 		SceneManager.LoadSceneAsync("SpawningScene");
 	}
+
+    public void Resume() {
+        Time.timeScale = 1f;
+        pausePanel.SetActive(false);
+    }
 }
