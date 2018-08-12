@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 	private bool dickMoving = true;
 
     [Header("Flipping the dick")]
+    [SerializeField] private bool enableDickFlipping;
     [SerializeField] private float maxXAngle;
     [SerializeField] private float flipDuration;
     private float lerpProgress;
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour {
             lastTimePositionChanged = Time.time;
         }
         //Debug.Log(Mathf.Abs(Transform.rotation.eulerAngles.x));
-        if (CheckForAngleFlip()) {
+        if (enableDickFlipping && CheckForAngleFlip()) {
             HandleDickFlipping();
         }
     }
@@ -94,7 +95,8 @@ public class PlayerController : MonoBehaviour {
 		txtLenghtDick.text = "Your dick length was: " + (lenghtDick * kBodyRatioToUnits * 100).ToString() + "cm";
 		txtLenghtDick.enabled = true;
 		dickMoving = false;
-	    gameManager.ChangeCameras(false);
+	    //gameManager.ChangeCameras(false);
+        EventManager.Instance.OnPlayerDeath.Invoke();
 	}
 
     private void HandleDickFlipping() {

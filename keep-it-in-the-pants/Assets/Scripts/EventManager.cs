@@ -14,6 +14,7 @@ public class EventManager : MonoBehaviour {
     public UnityEvent<float, float> OnDirectionInputChanged;
     public UnityEvent<Transform> OnPlayerPositionChanged;
     public UnityEvent<bool> OnChangeControlAvailaility;
+    public UnityEvent OnPlayerDeath;
 
     private void Awake() {
         if (!Instance) {
@@ -22,5 +23,6 @@ public class EventManager : MonoBehaviour {
         OnDirectionInputChanged = new DoubleFloatEvent();
         OnPlayerPositionChanged = new TransformEvent();
         OnChangeControlAvailaility = new BoolEvent();
+        OnPlayerDeath = new UnityEvent();
     }
 }

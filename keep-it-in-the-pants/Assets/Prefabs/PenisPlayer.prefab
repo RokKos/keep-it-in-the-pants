@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 20664657054434888}
   - component: {fileID: 81124133340421794}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: DickCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4733390798797822}
   - component: {fileID: 95526894930569784}
+  - component: {fileID: 136724989139977462}
   m_Layer: 0
   m_Name: penis5
   m_TagString: Untagged
@@ -462,8 +463,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923218889519720}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 20.59, z: 3.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4733390798797822}
@@ -618,7 +619,7 @@ AudioListener:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1109386389208406}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!95 &95526894930569784
 Animator:
   serializedVersion: 3
@@ -668,11 +669,25 @@ MonoBehaviour:
   txtLenghtDick: {fileID: 0}
   gameManager: {fileID: 0}
   speedMultiplier: 5
-  angleMultiplier: 1
+  angleMultiplier: 3
   rotationSpeedMultiplier: 8
   mr: {fileID: 137489036020891508}
+  enableDickFlipping: 0
   maxXAngle: 30
   flipDuration: 1
+--- !u!136 &136724989139977462
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163851378322812}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.26
+  m_Height: 0.78
+  m_Direction: 1
+  m_Center: {x: -0.21, y: 1.67, z: -0.17}
 --- !u!136 &136994139843267012
 CapsuleCollider:
   m_ObjectHideFlags: 1
