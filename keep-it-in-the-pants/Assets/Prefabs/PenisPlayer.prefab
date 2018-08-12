@@ -766,6 +766,7 @@ MonoBehaviour:
   txtLenghtDick: {fileID: 0}
   objButtons: {fileID: 0}
   gameManager: {fileID: 0}
+  deathAnimationController: {fileID: 0}
   speedMultiplier: 5
   angleMultiplier: 3
   rotationSpeedMultiplier: 8

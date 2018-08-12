@@ -22,7 +22,7 @@ public class UIController : MonoBehaviour {
             if(SceneManager.GetActiveScene().name == "MainUIScene") {
 			    ExitGame();
             }
-            else {
+            else if(GameManager.Instance.playerController.dickMoving) {
                 Time.timeScale = 0.0f;
                 pausePanel.SetActive(true);
             }

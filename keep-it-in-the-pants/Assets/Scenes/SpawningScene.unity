@@ -256,11 +256,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 55097013}
   m_Script: {fileID: 11500000, guid: 0141270895b4b51458e4e70c5694a76a, type: 3}
---- !u!1 &57164557 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1292526493264788, guid: 4e1fb62292744f7469438bf953113d53,
-    type: 2}
-  m_PrefabInternal: {fileID: 357443153}
 --- !u!1 &120531239
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +607,12 @@ MonoBehaviour:
   backgroundSound: {fileID: 176610616}
   sourceForVoice: {fileID: 176610617}
   voiceDelay: 1
+--- !u!114 &313655943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1058503855}
+  m_Script: {fileID: 11500000, guid: f8ae858d8f45bb449ab864b93be9c76b, type: 3}
 --- !u!1 &331878717
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +773,40 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.x
       value: 624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679016948089736, guid: 4e1fb62292744f7469438bf953113d53, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224187514234846142, guid: 4e1fb62292744f7469438bf953113d53,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 298
+      objectReference: {fileID: 0}
+    - target: {fileID: 224187514234846142, guid: 4e1fb62292744f7469438bf953113d53,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 196
+      objectReference: {fileID: 0}
+    - target: {fileID: 224293269466623106, guid: 4e1fb62292744f7469438bf953113d53,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 298
+      objectReference: {fileID: 0}
+    - target: {fileID: 224293269466623106, guid: 4e1fb62292744f7469438bf953113d53,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 196
+      objectReference: {fileID: 0}
+    - target: {fileID: 224773674145572454, guid: 4e1fb62292744f7469438bf953113d53,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 298
+      objectReference: {fileID: 0}
+    - target: {fileID: 224773674145572454, guid: 4e1fb62292744f7469438bf953113d53,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 196
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1fb62292744f7469438bf953113d53, type: 2}
@@ -1008,6 +1043,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &614729262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1679016948089736, guid: 4e1fb62292744f7469438bf953113d53,
+    type: 2}
+  m_PrefabInternal: {fileID: 357443153}
 --- !u!1 &626300776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,7 +1650,7 @@ Prefab:
         type: 2}
       propertyPath: objButtons
       value: 
-      objectReference: {fileID: 57164557}
+      objectReference: {fileID: 614729262}
     - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
         type: 2}
       propertyPath: gameManager
@@ -1618,14 +1658,14 @@ Prefab:
       objectReference: {fileID: 1929303786}
     - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
         type: 2}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 176610618}
-    - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
-        type: 2}
       propertyPath: deathAnimationController
       value: 
       objectReference: {fileID: 1929303787}
+    - target: {fileID: 114260163628618926, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b,
+        type: 2}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 176610618}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a34d11a8568f94e8bdcdcf8fd0aa2b, type: 2}
   m_IsPrefabAsset: 0
@@ -2043,6 +2083,7 @@ MonoBehaviour:
   topCamera: {fileID: 1509878871}
   dickCamera: {fileID: 670468481}
   tutorialController: {fileID: 1929303788}
+  playerController: {fileID: 313655943}
   dickMaterials:
   - {fileID: 2100000, guid: e6e99d451c5b94644a9944ca921efe16, type: 2}
   - {fileID: 2100000, guid: 3a4b7434357d89640bf27b3fc084c917, type: 2}
@@ -2051,7 +2092,7 @@ MonoBehaviour:
   positionSendingInterval: 0.05
   skinColor: {fileID: 2100000, guid: 34fcc74b695762f46a21f0a3f5363260, type: 2}
   cameraDelay: 0.1
-  cameraAxisRotationX: 10
+  cameraAxisRotationX: 4
   cameraAxisRotationY: 10
   cameraMoveSpeed: 10
   cameraCorrectionSpeedFactor: 0.8

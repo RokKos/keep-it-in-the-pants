@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     string scoreKey = "score_";
 
     [SerializeField] private TutorialController tutorialController;
+    [SerializeField] public PlayerController playerController;
 
     [SerializeField] private  List<Material> dickMaterials;
 

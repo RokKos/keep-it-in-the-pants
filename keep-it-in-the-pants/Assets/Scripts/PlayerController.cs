@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 
 	private float lenghtDick = 0.0f;
 	private const float kBodyRatioToUnits = 1.85f / 42.0f; // in meters
-	private bool dickMoving = true;
+	public bool dickMoving = true;
 
     [Header("Flipping the dick")]
     [SerializeField] private bool enableDickFlipping;
