@@ -52,9 +52,15 @@ public class GameManager : MonoBehaviour {
 	public float positionSendingInterval;
 	public Material skinColor;
 
+    public float cameraDelay = 0.4f;
+    public float cameraAxisRotationX = 10f;
+    public float cameraAxisRotationY = 10f;
+    public float cameraMoveSpeed = 10f;
+    public float cameraCorrectionSpeedFactor = 1f;
 
 
-	private void Awake () {
+
+    private void Awake () {
 		if (!Instance) {
 			Instance = this;
 		}

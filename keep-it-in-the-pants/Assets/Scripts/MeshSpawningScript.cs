@@ -123,9 +123,6 @@ public class MeshSpawningScript : MonoBehaviour {
     private bool first = true;
 
     Vector2[] generateUVs() {
-        Debug.Log(this.meshVertiecesList.Count);
-        Debug.Log((this.meshVertiecesList.Count - 1) / this.numberOfVertices);
-        Debug.Log(this.numberOfVertices);
 
         Vector2[] generatedUV = new Vector2[this.meshVertiecesList.Count];
 
@@ -135,12 +132,6 @@ public class MeshSpawningScript : MonoBehaviour {
                 float v = i == 0 ? 0 : (float)i / (float)(this.meshVertiecesList.Count - 1 - this.numberOfVertices - 1);
                 generatedUV[i + j] = new Vector2(u, v);
             }
-        }
-        if(first) {
-            for(int i = 0; i < generatedUV.Length; i++) {
-                Debug.Log(generatedUV[i]);
-            }
-            first = false;
         }
         return generatedUV;
     }
