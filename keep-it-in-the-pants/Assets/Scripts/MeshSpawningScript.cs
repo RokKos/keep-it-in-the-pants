@@ -42,9 +42,16 @@ public class MeshSpawningScript : MonoBehaviour {
         upBuffer = new Vector3[bufferSize+1];
         rightBuffer = new Vector3[bufferSize+1];
 
+        EventManager.Instance.OnPlayerDeath.AddListener(SpawnBufferContent);
         EventManager.Instance.OnPlayerPositionChanged.AddListener(PositionChanged);
+
         piValue = Mathf.PI * 2 / this.numberOfVertices;
 
+    }
+
+    void SpawnBufferContent() {
+        //Debug.Log("Death chunk should have been spawned!");
+        AddMeshToGO();
     }
 
     void PositionChanged(Transform snakeTransform) {
@@ -126,7 +133,7 @@ public class MeshSpawningScript : MonoBehaviour {
             for(int j = 0; j < this.numberOfVertices + 1; j++) {
                 float u = j == 0 ? 0 : (float)j / ((float)numberOfVertices - 1);
                 float v = i == 0 ? 0 : (float)i / (float)(this.meshVertiecesList.Count - 1 - this.numberOfVertices - 1);
-                generatedUV[i + j] = new Vector2(v, u);
+                generatedUV[i + j] = new Vector2(u, v);
             }
         }
         if(first) {
@@ -152,12 +159,12 @@ public class MeshSpawningScript : MonoBehaviour {
         for (int i = 0; i < this.numberOfVertices; i++) {
             Vector3 newVertex = this.playerLocations[this.playerLocations.Count - 1];
 
-            newVertex += Mathf.Sin(this.piValue * i) * up;
-            newVertex += Mathf.Cos(this.piValue * i) * right;
+            newVertex += Mathf.Sin(this.piValue * i) * up * grith;
+            newVertex += Mathf.Cos(this.piValue * i) * right * grith;
             meshVertiecesList.Add(newVertex);
         }
         Vector3 addOnVertex = this.playerLocations[this.playerLocations.Count - 1];
-        addOnVertex += right;
+        addOnVertex += right * grith;
         meshVertiecesList.Add(addOnVertex);
 
     }
