@@ -13,8 +13,10 @@ public class UIController : MonoBehaviour {
 
 
     private void Start() {
-        if(field)
+        if (field) {
             field.onEndEdit.AddListener(ChangeName);
+            field.text = PlayerPrefs.GetString("player_name", "Lil Dicky");
+        }
     }
 
 	private void Update () {
