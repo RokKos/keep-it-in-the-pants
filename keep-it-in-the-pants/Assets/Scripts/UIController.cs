@@ -8,9 +8,18 @@ public class UIController : MonoBehaviour {
 
 	[SerializeField] private Slider racistSlider;
 	[SerializeField] private Toggle invertControlsToggle;
+    [SerializeField] private InputField field;
 
 
-	public void Restart () {
+    private void Start() {
+        field.onEndEdit.AddListener(ChangeName);
+    }
+
+    private void ChangeName(string name) {
+        PlayerPrefs.SetString("player_name", name);
+    }
+
+    public void Restart () {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
