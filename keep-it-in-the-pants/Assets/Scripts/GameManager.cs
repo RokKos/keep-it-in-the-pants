@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
 		DickInfo info = dickSettings[dickType];
 		skinColor = dickMaterials[info.material_ind];
 		dickRadius = info.thickness;
-        if(PlayerPrefs.GetInt("tutorial", 0) == 0 || true) {
+        if(PlayerPrefs.GetInt("tutorial", 0) == 0) {
             tutorialController.Init();
         }
 	}
