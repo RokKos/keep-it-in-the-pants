@@ -50,61 +50,75 @@ public class MeshSpawningScript : MonoBehaviour {
     }
 
     void SpawnBufferContent() {
-        //Debug.Log("Death chunk should have been spawned!");
-        AddMeshToGO();
+        Debug.Log("Death chunk should have been spawned!");
+        generateface();
+        AddMeshToGO(true);
+        //for(int i = 0; i < bufferSize; i++) {
+        //    if (posBuffer[i] != Vector3.zero) break;
+        //    ProcessNewPositions(posBuffer[i], upBuffer[i], rightBuffer[i]);
+        //}
+        //AddMeshToGO(true);
     }
-
+    private int bCounter = 0;
     void PositionChanged(Transform snakeTransform) {
-        if(buffer < bufferSize) {
-            posBuffer[buffer] = snakeTransform.position;
-            upBuffer[buffer] = snakeTransform.up;
-            rightBuffer[buffer] = snakeTransform.right;
-            buffer++;
+        ProcessNewPositions(snakeTransform.position, snakeTransform.up, snakeTransform.right);
+        if (bCounter >= bufferSize) {
+            AddMeshToGO(false);
+            bCounter = 0;
             return;
         }
-        posBuffer[buffer] = snakeTransform.position;
-        upBuffer[buffer] = snakeTransform.up;
-        rightBuffer[buffer] = snakeTransform.right;
-        for (int i = 0; i <= this.bufferSize; i++) {
-            ProcessNewPositions(posBuffer[i], upBuffer[i], rightBuffer[i]);
-        }
-        buffer = 0;
-        posBuffer = new Vector3[bufferSize+1];
-        upBuffer = new Vector3[bufferSize+1];
-        rightBuffer = new Vector3[bufferSize+1];
-        this.AddMeshToGO();
+        bCounter++;
+        //if(buffer < bufferSize) {
+        //    posBuffer[buffer] = snakeTransform.position;
+        //    upBuffer[buffer] = snakeTransform.up;
+        //    rightBuffer[buffer] = snakeTransform.right;
+        //    buffer++;
+        //    return;
+        //}
+        //posBuffer[buffer] = snakeTransform.position;
+        //upBuffer[buffer] = snakeTransform.up;
+        //rightBuffer[buffer] = snakeTransform.right;
+        //for (int i = 0; i <= this.bufferSize; i++) {
+        //    ProcessNewPositions(posBuffer[i], upBuffer[i], rightBuffer[i]);
+        //}
+        //buffer = 0;
+        //posBuffer = new Vector3[bufferSize+1];
+        //upBuffer = new Vector3[bufferSize+1];
+        //rightBuffer = new Vector3[bufferSize+1];
+        //this.AddMeshToGO(false);
 
     }
     void ProcessNewPositions(Vector3 pos, Vector3 up, Vector3 right) {
         this.playerLocations.Add(pos);
         this.GenerateNewVertices(pos, up, right);
         this.GenerateTriangles();
-        if (this.chunkCounter == this.chunkSize) {
-            this.chunkCounter = 0;
+       // this.AddMeshToGO();
+        //if (this.chunkCounter == this.chunkSize) {
+        //    this.chunkCounter = 0;
 
-            //this.meshVertiecesList.Add(pos);
-            //this.GenerateFace(false);
-            this.AddMeshToGO();
+        //    //this.meshVertiecesList.Add(pos);
+        //    //this.GenerateFace(false);
+        //    this.AddMeshToGO(false);
 
-            this.meshVertiecesList = new List<Vector3>();
-            this.meshTriangles = new List<int>();
-            this.playerLocations = new List<Vector3>();
+        //    this.meshVertiecesList = new List<Vector3>();
+        //    this.meshTriangles = new List<int>();
+        //    this.playerLocations = new List<Vector3>();
 
-            this.playerLocations.Add(pos);
-            this.GenerateNewVertices(pos, up, right);
-            this.GenerateTriangles();
+        //    this.playerLocations.Add(pos);
+        //    this.GenerateNewVertices(pos, up, right);
+        //    this.GenerateTriangles();
 
-            trianglesCreated = 0;
+        //    trianglesCreated = 0;
 
-            currentSection = new GameObject();
-            currentSection.transform.parent = gameObject.transform;
-            snakeMeshFilter = currentSection.AddComponent<MeshFilter>();
-            snakeMeshRenderer = currentSection.AddComponent<MeshRenderer>();
-        }
+        //    currentSection = new GameObject();
+        //    currentSection.transform.parent = gameObject.transform;
+        //    snakeMeshFilter = currentSection.AddComponent<MeshFilter>();
+        //    snakeMeshRenderer = currentSection.AddComponent<MeshRenderer>();
+        //}
         this.chunkCounter++;
     }
 
-    void AddMeshToGO() {
+    void AddMeshToGO(bool last) {
         snakeMeshFilter = currentSection.GetComponent<MeshFilter>();
         snakeMeshRenderer = currentSection.GetComponent<MeshRenderer>();
 
@@ -113,7 +127,7 @@ public class MeshSpawningScript : MonoBehaviour {
         snakeMeshFilter.mesh.name = "ThickBlackSnake";
         snakeMeshFilter.mesh.vertices = this.meshVertiecesList.ToArray();
         snakeMeshFilter.mesh.triangles = this.meshTriangles.ToArray();
-        snakeMeshFilter.mesh.uv = generateUVs();
+        snakeMeshFilter.mesh.uv = generateUVs(last);
         snakeMeshFilter.mesh.RecalculateNormals();
 
         snakeMeshRenderer.material = this.snakeMaterial;
@@ -122,17 +136,20 @@ public class MeshSpawningScript : MonoBehaviour {
 
     private bool first = true;
 
-    Vector2[] generateUVs() {
+    Vector2[] generateUVs(bool last) {
 
         Vector2[] generatedUV = new Vector2[this.meshVertiecesList.Count];
 
-        for(int i = 0; i < this.meshVertiecesList.Count; i += this.numberOfVertices + 1) {
+        int size = last ? this.meshVertiecesList.Count - 1 : this.meshVertiecesList.Count;
+
+        for (int i = 0; i < size; i += this.numberOfVertices + 1) {
             for(int j = 0; j < this.numberOfVertices + 1; j++) {
                 float u = j == 0 ? 0 : (float)j / ((float)numberOfVertices - 1);
-                float v = i == 0 ? 0 : (float)i / (float)(this.meshVertiecesList.Count - 1 - this.numberOfVertices - 1);
+                float v = i == 0 ? 0 : (float)i / (float)(size - 1 - this.numberOfVertices - 1);
                 generatedUV[i + j] = new Vector2(u, v);
             }
         }
+        if (last) generatedUV[meshVertiecesList.Count - 1] = new Vector2(0.5f, 0.5f);
         return generatedUV;
     }
 
@@ -215,20 +232,13 @@ public class MeshSpawningScript : MonoBehaviour {
         //}
     }
 
-    //void GenerateFace(bool first) {
-    //    if (!this.generateFaceBool) return;
-    //    if (first) {
-    //        for (int i = 0; i < this.numberOfVertices; i++) {
-    //            this.meshTriangles.Add(1 + i);
-    //            this.meshTriangles.Add(0);
-    //            this.meshTriangles.Add(i == this.numberOfVertices - 1 ? 1 : i + 2);
-    //        }
-    //        return;
-    //    }
-    //    for (int i = 0; i < this.numberOfVertices; i++) {
-    //        this.meshTriangles.Add(i == this.numberOfVertices - 1 ? this.numberOfVertices * (this.playerLocations.Count - 1) + 1 : this.numberOfVertices * (this.playerLocations.Count - 1) + 2 + i);
-    //        this.meshTriangles.Add(this.meshVertiecesList.Count - 1);
-    //        this.meshTriangles.Add(this.numberOfVertices * (this.playerLocations.Count - 1) + 1 + i);
-    //    }
-    //}
+    void generateface() {
+        meshVertiecesList.Add(playerLocations[playerLocations.Count - 1]);
+        int start = meshVertiecesList.Count - numberOfVertices - 2;
+        for (int i = 0; i < numberOfVertices+1; i++) {
+            meshTriangles.Add(start + i + 1);
+            meshTriangles.Add(meshVertiecesList.Count - 1);
+            meshTriangles.Add(start + i);
+        }
+    }
 }
