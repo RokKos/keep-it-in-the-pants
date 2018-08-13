@@ -13,6 +13,8 @@ public class UIController : MonoBehaviour {
 
 
     private void Start() {
+		//PlayerPrefs.DeleteAll();
+
         if (field) {
             field.onEndEdit.AddListener(ChangeName);
             field.text = PlayerPrefs.GetString("player_name", "Lil Dicky");
@@ -53,6 +55,11 @@ public class UIController : MonoBehaviour {
 	public void GoToHighScore () {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Highscore");
+	}
+
+	public void GoToCredits () {
+		Time.timeScale = 1f;
+		SceneManager.LoadScene("Credits");
 	}
 
 	public void OnPlayGame () {
